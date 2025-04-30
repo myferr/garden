@@ -6,9 +6,15 @@ export default async function handler(req, res) {
 
   try {
     const fileContents = fs.readFileSync(filePath, "utf-8");
+    const garden = JSON.parse(fileContents);
+
+    if (!garden.registered) {
+      return res.status(404).json({ error: "'registered' key not found" });
+    }
+
     res.setHeader("Content-Type", "application/json");
-    res.status(200).send(fileContents);
+    res.status(200).json(garden);
   } catch (err) {
-    res.status(500).json({ error: "Could not load garden." });
+    res.status(500).json({ error: "Could not load or parse garden.json" });
   }
 }
