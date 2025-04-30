@@ -6,7 +6,11 @@ import { useEffect, useState } from "react"; // Import useState and useEffect fo
 import { Flower } from "@/components/ui/Flower";
 
 export default function Home() {
-  const [gardenData, setGardenData] = useState<any>({ registered: [] }); // Default to empty array
+  interface GardenData {
+    registered: { user: string; message: string; flower: string }[];
+  }
+
+  const [gardenData, setGardenData] = useState<GardenData>({ registered: [] }); // Default to empty array
   const [loading, setLoading] = useState<boolean>(true); // Track loading state
   const [error, setError] = useState<string | null>(null); // Track errors
 
@@ -18,8 +22,12 @@ export default function Home() {
         if (!res.ok) throw new Error("Failed to fetch garden data.");
         const data = await res.json();
         setGardenData(data); // Set the full response data
-      } catch (err: any) {
-        setError(err.message || "An error occurred while fetching data.");
+      } catch (err: unknown) {
+        if (err instanceof Error) {
+          setError(err.message || "An error occurred while fetching data.");
+        } else {
+          setError("An unknown error occurred.");
+        }
       } finally {
         setLoading(false); // Stop loading once data is fetched
       }
@@ -86,14 +94,19 @@ export default function Home() {
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
               id="garden"
             >
-              {gardenData.registered.map((flower: any, index: number) => (
-                <Flower
-                  key={index}
-                  user={flower.user}
-                  message={flower.message}
-                  flower={flower.flower}
-                />
-              ))}
+              {gardenData.registered.map(
+                (
+                  flower: { user: string; message: string; flower: string },
+                  index: number
+                ) => (
+                  <Flower
+                    key={index}
+                    user={flower.user}
+                    message={flower.message}
+                    flower={flower.flower}
+                  />
+                )
+              )}
             </div>
           </div>
         </div>
