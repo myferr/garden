@@ -94,4 +94,3 @@ You may find inspiration from:
 
 ## Contributing to front-end and back-end
 Front-end files are stored in [`deployment/`](https://github.com/myferr/garden/tree/main/deployment)
-Back-end files are [`index.html`](https://github.com/myferr/garden/blob/main/index.html) and [`api.js`](https://github.com/myferr/garden/blob/main/api.js), both stored in the root of the repository.
