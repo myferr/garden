@@ -1,7 +1,3 @@
-Understood. Here's a clean, professional version of your `CONTRIBUTING.md`, without emojis and with consistent formatting and tone:
-
----
-
 # Contributing to Garden
 
 To keep Garden a safe and welcoming space for everyone, please follow these guidelines when submitting a flower.
