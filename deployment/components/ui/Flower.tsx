@@ -24,7 +24,9 @@ export function Flower({ user, message, flower }: FlowerProps) {
             @{user}
           </Link>
           {message && (
-            <p className="italic text-muted-foreground mt-1">“{message}”</p>
+            <p className="italic text-muted-foreground mt-1 break-words whitespace-pre-wrap">
+              “{message}”
+            </p>
           )}
         </div>
       </CardContent>
