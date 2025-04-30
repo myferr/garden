@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { FaArrowDown, FaGithub } from "react-icons/fa6";
+import { FaArrowDown, FaGithub, FaMoon, FaSun } from "react-icons/fa6";
 import { useEffect, useState } from "react"; // Import useState and useEffect for fetching data
 import { Flower } from "@/components/ui/Flower";
 
