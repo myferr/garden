@@ -1,4 +1,5 @@
 . [myferr/garden](https://github.com/myferr/garden)
+```
 ├── GARDEN.json # Flower registry (users + messages + flower ASCII)
 ├── api.js # Lightweight API returning the GARDEN.json content
 ├── index.html # Minimal deployment root for API
@@ -9,3 +10,4 @@
 ├── README.md
 ├── ARCHITECTURE.md # This file
 └── CONTRIBUTING.md # Contribution guide
+```
