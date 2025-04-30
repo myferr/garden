@@ -10,6 +10,26 @@ export default function Home() {
     registered: { user: string; message: string; flower: string }[];
   }
 
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    if (typeof window !== "undefined") {
+      return document.getElementById("layout")?.classList.contains("dark")
+        ? "dark"
+        : "light";
+    }
+    return "light";
+  });
+
+  const toggleTheme = () => {
+    const newTheme = theme === "dark" ? "light" : "dark";
+    const layout = document.getElementById("layout");
+    if (layout) {
+      layout.classList.remove(theme);
+      layout.classList.add(newTheme);
+    }
+    localStorage.setItem("theme", newTheme);
+    setTheme(newTheme); // triggers re-render
+  };
+
   const [gardenData, setGardenData] = useState<GardenData>({ registered: [] }); // Default to empty array
   const [loading, setLoading] = useState<boolean>(true); // Track loading state
   const [error, setError] = useState<string | null>(null); // Track errors
@@ -70,12 +90,20 @@ export default function Home() {
           {registeredFlowersCount === 1 ? <span>{"s"}</span> : <></>}
           ... {registeredFlowersCount === 0 ? <span>{":("}</span> : <></>}
         </p>
-        <Link
-          href={"https://github.com/myferr/garden"}
-          className="mt-3 text-neutral-500 hover:text-white transition-colors"
-        >
-          <FaGithub />
-        </Link>
+        <div className="flex mt-3 space-x-2 items-center">
+          <Link
+            href={"https://github.com/myferr/garden"}
+            className="text-neutral-500 dark:hover:text-white hover:text-neutral-800 transition-colors"
+          >
+            <FaGithub />
+          </Link>
+          <button
+            onClick={toggleTheme}
+            className="text-neutral-500 hover:cursor-pointer dark:hover:text-white hover:text-neutral-800 transition-colors"
+          >
+            {theme === "dark" ? <FaMoon /> : <FaSun />}
+          </button>
+        </div>
       </div>
       {registeredFlowersCount > 0 ? (
         <div>
