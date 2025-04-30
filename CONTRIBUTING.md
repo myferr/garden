@@ -39,7 +39,7 @@ Edit the `GARDEN.json` file at the root of the project:
 
 ## 3. Make a Pull Request
 
-After editing `GARDEN.json`, commit and push your changes:
+Star this repository and after editing `GARDEN.json`, commit and push your changes:
 
 ```bash
 git add GARDEN.json
