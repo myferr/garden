@@ -1,7 +1,9 @@
-[
-  {
-    "user": "myferr",
-    "message": "Hello, World!",
-    "flower": "sunflower"
-  }
-]
+{
+  "registered": [
+    {
+      "user": "myferr",
+      "message": "Hello, World!",
+      "flower": "sunflower"
+    }
+  ]
+}
