@@ -26,7 +26,5 @@ A garden of open-source flowers, planted by developers around the world.
 **Garden** is a playful API + frontend experience where developers can plant digital flowers — by submitting a name, a short message, and their favorite bloom.  
 It's powered by Vercel and displays a living, community-driven collection of contributions.
 
-## 💚 What this means to me
-
-This project marks a personal milestone: my **60th GitHub repository**. More than that, it’s a celebration of creative, open-source spirit — a space where we can grow something together.  
+It’s a celebration of creative, open-source spirit — a space where we can grow something together.  
 I’d love for you to [contribute and add your flower!](CONTRIBUTING.md)
